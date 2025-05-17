@@ -1,4 +1,4 @@
-﻿import numpy as np
+import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 import tkinter as tk
@@ -36,7 +36,7 @@ def bisection_method(f, x_l, x_u, tol=1e-6, max_iter=100):
         f_xr = f(x_r)
         f_xu = f(x_u)
         if x_r_old is not None:
-            error = abs((x_r - x_r_old) / x_r)
+            error = abs((x_r - x_r_old) / x_r) * 100  # as percent
         else:
             error = None  # or set to a large value or '-'
         product = f_xl * f_xr
@@ -232,7 +232,7 @@ def plot_and_solve():
             for root in roots:
                 ax.axvline(root, linestyle='dashed', color='red', label=f'Root: {root:.3f}')
         elif method == "Bisection":
-            tol = float(tol_entry.get())
+            tol = float(tol_entry.get())  # User enters 0.5 for 0.5%
             table, root = bisection_method(f, x_start, x_end, tol)
             columns = ["Iter", "x_l", "x_r", "x_u", "f(x_l)", "f(x_r)", "|e_a| %", "f(x_l)*f(x_r)", "Remark"]
             last_table = table
@@ -240,7 +240,9 @@ def plot_and_solve():
             for row in table:
                 results_table.insert("", "end", values=(
                     row[0], safe_float_fmt(row[1]), safe_float_fmt(row[2]), safe_float_fmt(row[3]),
-                    safe_float_fmt(row[4]), safe_float_fmt(row[5]), safe_float_fmt(row[6]), safe_float_fmt(row[7]), row[8]
+                    safe_float_fmt(row[4]), safe_float_fmt(row[5]),
+                    (safe_float_fmt(row[6], ".5f") + " %" if row[6] != '-' else '-'),
+                    safe_float_fmt(row[7]), row[8]
                 ))
             ax.axvline(root, linestyle='dashed', color='red', label=f'Root: {root:.3f}')
         elif method == "Regula-Falsi":
