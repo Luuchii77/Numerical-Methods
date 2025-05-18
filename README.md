@@ -1,4 +1,4 @@
-These are the images of my project for Numerical Methods. The topics were covered are Graphical, Incremental, Bisection, Regula-Falsi, Secant, and Newton-Raphson
+These are the images of my project for Numerical Methods. The topics were covered are Graphical, Incremental, Bisection, Regula-Falsi, Secant, and Newton-Raphson. These following images are based on the example in order to measure the accurate reading and solving entities. 
 
 ![image](https://raw.githubusercontent.com/Luuchii77/Numerical-Methods/146c33672e3f2ee537a5bd18d3f275e5621dcea1/window_ui.jpg)
 ![image](https://raw.githubusercontent.com/Luuchii77/Numerical-Methods/146c33672e3f2ee537a5bd18d3f275e5621dcea1/window_UI%20Graphical.jpg)
